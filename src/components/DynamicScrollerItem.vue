@@ -200,9 +200,11 @@ export default {
     },
 
     unobserveSize () {
-      if (!this.vscrollResizeObserver) return
-      this.vscrollResizeObserver.unobserve(this.$el.parentNode)
-      this.$el.parentNode.removeEventListener('resize', this.onResize)
+      try {
+        if (!this.vscrollResizeObserver) return
+        this.vscrollResizeObserver.unobserve(this.$el.parentNode)
+        this.$el.parentNode.removeEventListener('resize', this.onResize)
+      } catch (e) {};
     },
 
     onResize (event) {

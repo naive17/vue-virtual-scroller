@@ -1387,9 +1387,11 @@ var script$2 = {
       this.$el.parentNode.addEventListener('resize', this.onResize);
     },
     unobserveSize: function unobserveSize() {
-      if (!this.vscrollResizeObserver) return;
-      this.vscrollResizeObserver.unobserve(this.$el.parentNode);
-      this.$el.parentNode.removeEventListener('resize', this.onResize);
+      try {
+        if (!this.vscrollResizeObserver) return;
+        this.vscrollResizeObserver.unobserve(this.$el.parentNode);
+        this.$el.parentNode.removeEventListener('resize', this.onResize);
+      } catch (e) {}
     },
     onResize: function onResize(event) {
       var _event$detail$content = event.detail.contentRect,
