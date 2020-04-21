@@ -835,7 +835,7 @@ var __vue_render__ = function() {
               _vm.totalSize + "px"),
             _obj$1)
         },
-        _vm._l(_vm.pool, function(view, index) {
+        _vm._l(_vm.pool, function(view) {
           return _c(
             "div",
             {
@@ -850,7 +850,7 @@ var __vue_render__ = function() {
                       "(" +
                       view.position +
                       "px)",
-                    "z-index": -index
+                    "z-index": -view.position
                   }
                 : null,
               on: {
